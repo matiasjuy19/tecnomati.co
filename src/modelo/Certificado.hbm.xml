@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/04/2013 13:05:44 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Certificado" table="certificado" catalog="dario">
+        <id name="numeroCertificado" type="string">
+            <column name="numeroCertificado" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="personaByIdAhijado" class="modelo.Persona" fetch="select">
+            <column name="idAhijado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="personaByIdPadrino" class="modelo.Persona" fetch="select">
+            <column name="idPadrino" not-null="true" />
+        </many-to-one>
+        <many-to-one name="personaByIdTutor" class="modelo.Persona" fetch="select">
+            <column name="idTutor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="personaByIdCura" class="modelo.Persona" fetch="select">
+            <column name="idCura" not-null="true" />
+        </many-to-one>
+        <property name="nombreParroquia" type="string">
+            <column name="nombreParroquia" length="45" />
+        </property>
+        <property name="domicilioParooquia" type="string">
+            <column name="domicilioParooquia" length="45" />
+        </property>
+        <property name="telefParroquia" type="string">
+            <column name="telefParroquia" length="45" />
+        </property>
+        <property name="barrioParroquia" type="string">
+            <column name="barrioParroquia" length="45" />
+        </property>
+        <property name="libro" type="string">
+            <column name="libro" length="45" />
+        </property>
+        <property name="folio" type="string">
+            <column name="folio" length="45" />
+        </property>
+        <property name="partida" type="string">
+            <column name="partida" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

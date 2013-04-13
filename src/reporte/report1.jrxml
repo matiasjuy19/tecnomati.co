@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f2416643-8a9e-4bda-a994-c486b34fffe5">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     certificado.`numeroCertificado` AS certificado_numeroCertificado,
+     certificado.`idCura` AS certificado_idCura,
+     certificado.`idAhijado` AS certificado_idAhijado,
+     certificado.`idTutor` AS certificado_idTutor,
+     certificado.`idPadrino` AS certificado_idPadrino,
+     certificado.`nombreParroquia` AS certificado_nombreParroquia,
+     certificado.`domicilioParooquia` AS certificado_domicilioParooquia,
+     certificado.`telefParroquia` AS certificado_telefParroquia,
+     certificado.`barrioParroquia` AS certificado_barrioParroquia,
+     certificado.`libro` AS certificado_libro,
+     certificado.`folio` AS certificado_folio,
+     certificado.`partida` AS certificado_partida,
+     persona.`idPersona` AS persona_idPersona,
+     persona.`dni` AS persona_dni,
+     persona.`cura` AS persona_cura,
+     persona.`apellido` AS persona_apellido,
+     persona.`nombre` AS persona_nombre,
+     persona.`sexo` AS persona_sexo,
+     persona.`fechaNaciemiento` AS persona_fechaNaciemiento,
+     persona.`lugarNacimiento` AS persona_lugarNacimiento,
+     persona.`provNacimiento` AS persona_provNacimiento,
+     persona.`nacionalidad` AS persona_nacionalidad,
+     persona.`hijoDe` AS persona_hijoDe,
+     persona.`domicilio` AS persona_domicilio,
+     persona.`Barrio` AS persona_Barrio,
+     persona.`telefonoFijo` AS persona_telefonoFijo,
+     persona.`telefonoCelular` AS persona_telefonoCelular
+FROM
+     `persona` persona INNER JOIN `certificado` certificado ON persona.`idPersona` = certificado.`idCura`
+     AND persona.`idPersona` = certificado.`idPadrino`
+     AND persona.`idPersona` = certificado.`idAhijado`
+     AND persona.`idPersona` = certificado.`idTutor`]]>
+	</queryString>
+	<field name="certificado_numeroCertificado" class="java.lang.String"/>
+	<field name="certificado_idCura" class="java.lang.Integer"/>
+	<field name="certificado_idAhijado" class="java.lang.Integer"/>
+	<field name="certificado_idTutor" class="java.lang.Integer"/>
+	<field name="certificado_idPadrino" class="java.lang.Integer"/>
+	<field name="certificado_nombreParroquia" class="java.lang.String"/>
+	<field name="certificado_domicilioParooquia" class="java.lang.String"/>
+	<field name="certificado_telefParroquia" class="java.lang.String"/>
+	<field name="certificado_barrioParroquia" class="java.lang.String"/>
+	<field name="certificado_libro" class="java.lang.String"/>
+	<field name="certificado_folio" class="java.lang.String"/>
+	<field name="certificado_partida" class="java.lang.String"/>
+	<field name="persona_idPersona" class="java.lang.Integer"/>
+	<field name="persona_dni" class="java.lang.Integer"/>
+	<field name="persona_cura" class="java.lang.Boolean"/>
+	<field name="persona_apellido" class="java.lang.String"/>
+	<field name="persona_nombre" class="java.lang.String"/>
+	<field name="persona_sexo" class="java.lang.String"/>
+	<field name="persona_fechaNaciemiento" class="java.sql.Date"/>
+	<field name="persona_lugarNacimiento" class="java.lang.String"/>
+	<field name="persona_provNacimiento" class="java.lang.String"/>
+	<field name="persona_nacionalidad" class="java.lang.String"/>
+	<field name="persona_hijoDe" class="java.lang.String"/>
+	<field name="persona_domicilio" class="java.lang.String"/>
+	<field name="persona_Barrio" class="java.lang.String"/>
+	<field name="persona_telefonoFijo" class="java.lang.String"/>
+	<field name="persona_telefonoCelular" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="852ca54a-4402-48b2-9fbd-de90d3b0efd1" x="91" y="42" width="117" height="38"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[hola]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c1554c88-bdf3-4b03-9674-01d5f375ef18" x="374" y="42" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{certificado_nombreParroquia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

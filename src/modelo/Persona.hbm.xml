@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/04/2013 13:05:44 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Persona" table="persona" catalog="dario">
+        <id name="idPersona" type="int">
+            <column name="idPersona" />
+            <generator class="assigned" />
+        </id>
+        <property name="dni" type="int">
+            <column name="dni" not-null="true" />
+        </property>
+        <property name="cura" type="boolean">
+            <column name="cura" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="45" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="12" not-null="true" />
+        </property>
+        <property name="fechaNaciemiento" type="date">
+            <column name="fechaNaciemiento" length="10" />
+        </property>
+        <property name="lugarNacimiento" type="string">
+            <column name="lugarNacimiento" length="45" />
+        </property>
+        <property name="provNacimiento" type="string">
+            <column name="provNacimiento" length="45" />
+        </property>
+        <property name="nacionalidad" type="string">
+            <column name="nacionalidad" length="20" />
+        </property>
+        <property name="hijoDe" type="string">
+            <column name="hijoDe" length="45" />
+        </property>
+        <property name="domicilio" type="string">
+            <column name="domicilio" length="45" />
+        </property>
+        <property name="barrio" type="string">
+            <column name="Barrio" length="45" />
+        </property>
+        <property name="telefonoFijo" type="string">
+            <column name="telefonoFijo" length="45" />
+        </property>
+        <property name="telefonoCelular" type="string">
+            <column name="telefonoCelular" length="45" />
+        </property>
+        <set name="certificadosForIdCura" inverse="true">
+            <key>
+                <column name="idCura" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Certificado" />
+        </set>
+        <set name="certificadosForIdAhijado" inverse="true">
+            <key>
+                <column name="idAhijado" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Certificado" />
+        </set>
+        <set name="certificadosForIdTutor" inverse="true">
+            <key>
+                <column name="idTutor" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Certificado" />
+        </set>
+        <set name="certificadosForIdPadrino" inverse="true">
+            <key>
+                <column name="idPadrino" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Certificado" />
+        </set>
+    </class>
+</hibernate-mapping>
